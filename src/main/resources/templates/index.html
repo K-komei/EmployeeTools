@@ -10,14 +10,29 @@
 
 <div class = "container">
 <div class = "row">
-<div class = "sm-col-4 bg-primary">
+<div class = "sm-col-12 bg-primary w-100">
 <h1>従業員マスタ</h1>
 </div>
-<div class = "sm-col-4 bg-secondary">
+<div class = "sm-col-12 bg-secondary w-100">
 <table>
 <tbody>
 <tr>
-<td></td>
+  	<td class = "w-10" th:text="ID"></td>
+  	<td class = "w-25" th:text="氏名"></td>
+  	<td class = "w-10" th:text="従業員番号"></td>
+  	<td class = "w-10" th:text="性別"></td>
+  	<td class = "w-10" th:text="年齢"></td>
+  	<td class = "w-25" th:text="部署"></td>
+  	<td class = "w-25" th:text="クラス"></td>
+</tr>
+  <tr th:each="employee : ${employeies}">
+  	<td class = "w-10" th:text="${employee.id}"></td>
+  	<td class = "w-25" th:text="${employee.employee_name}"></td>
+  	<td class = "w-10" th:text="${employee.employee_num}"></td>
+  	<td class = "w-10" th:text="${employee.employee_sex}"></td>
+  	<td class = "w-10" th:text="${employee.employee_age}"></td>
+  	<td class = "w-25" th:text="${employee.employee_department}"></td>
+  	<td class = "w-25" th:text="${employee.employee_class}"></td>
 </tr>
 </tbody>
 </table>

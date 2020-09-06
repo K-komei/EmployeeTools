@@ -26,7 +26,6 @@ import lombok.Data;
 	    @Column("employee_name")
 	    private String employee_name;
 
-	    @Id
 	    @Column("employee_num")
 	    private long employee_num;
 
