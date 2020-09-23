@@ -10,29 +10,61 @@
 
 <div class = "container">
 <div class = "row">
-<div class = "sm-col-12 bg-primary w-100">
+<div class = "bg-col-12 bg-primary w-100">
 <h1>従業員マスタ</h1>
 </div>
-<div class = "sm-col-12 bg-secondary w-100">
+</div>
+
+<div class = "row">
+<div class = "bg-col-3 bg-primary w-25">
+<span>mode</span>
+<select name = "mode">
+<option value="" hidden>please select mode</option>
+<option value="filter" >filter</option>
+<option value="export">export</option>
+<option value="edit">edit</option>
+</select>
+
+</div>
+
+<div class = "bg-col-3 bg-primary  w-25">
+<!-- <select th:field = "employee : ${employeies}">
+<option th:text="${employee.employee_class}"></option>
+</select>
+-->
+
+</div>
+
+<div class = "bg-col-3 bg-primary  w-25">
+</div>
+
+<div class = "bg-col-3 bg-primary  w-25">
+<input type = "submit" value = "act">
+</div>
+
+</div>
+
+<div class = "row">
+<div class = "bg-col-12 bg-secondary w-100">
 <table>
 <tbody>
 <tr>
-  	<td class = "w-10" th:text="ID"></td>
-  	<td class = "w-25" th:text="氏名"></td>
-  	<td class = "w-10" th:text="従業員番号"></td>
-  	<td class = "w-10" th:text="性別"></td>
-  	<td class = "w-10" th:text="年齢"></td>
-  	<td class = "w-25" th:text="部署"></td>
-  	<td class = "w-25" th:text="クラス"></td>
+  	<td class = "td_small table_header" th:text="ID"></td>
+  	<td class = "td_large table_header" th:text="氏名"></td>
+  	<td class = "td_middle table_header" th:text="従業員番号"></td>
+  	<td class = "td_small table_header" th:text="性別"></td>
+  	<td class = "td_small table_header" th:text="年齢"></td>
+  	<td class = "td_large table_header" th:text="部署"></td>
+  	<td class = "td_middle table_header" th:text="クラス"></td>
 </tr>
-  <tr th:each="employee : ${employeies}">
-  	<td class = "w-10" th:text="${employee.id}"></td>
-  	<td class = "w-25" th:text="${employee.employee_name}"></td>
-  	<td class = "w-10" th:text="${employee.employee_num}"></td>
-  	<td class = "w-10" th:text="${employee.employee_sex}"></td>
-  	<td class = "w-10" th:text="${employee.employee_age}"></td>
-  	<td class = "w-25" th:text="${employee.employee_department}"></td>
-  	<td class = "w-25" th:text="${employee.employee_class}"></td>
+  <tr th:each="employee : ${employeies}" >
+  	<td class = "td_small table_data" th:text="${employee.id}"></td>
+  	<td class = "td_large table_data" th:text="${employee.employee_name}"></td>
+  	<td class = "td_middle table_data" th:text="${employee.employee_num}"></td>
+  	<td class = "td_small table_data" th:text="${employee.employee_sex}"></td>
+  	<td class = "td_small table_data" th:text="${employee.employee_age}"></td>
+  	<td class = "td_large table_data" th:text="${employee.employee_department}"></td>
+  	<td class = "td_middle table_data" th:text="${employee.employee_class}"></td>
 </tr>
 </tbody>
 </table>
