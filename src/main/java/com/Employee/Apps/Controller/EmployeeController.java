@@ -20,11 +20,27 @@ public class EmployeeController {
 	Employee_Service EService;
 
 	@GetMapping("/")
-	public String hello(Model model ) {
-		List <Employee_Entity> employeies = EService.showAllEmployee();
+	public String index(Model model ) {
+//		List <Employee_Entity> employeies = EService.showAllEmployee();
+
+		List <Employee_Entity> employeies = EService.searchUserList();
+
+
 	    model.addAttribute("employeies",employeies);
 		return "index.html";
 	}
+
+	@GetMapping("/createuser")
+	public String createuser(Model model ) {
+		Employee_Entity employee = new Employee_Entity();
+	    model.addAttribute("employee",employee);
+	    EService.EmployeeGenerator();
+
+
+
+		return "createuser.html";
+	}
+
 
 
 }
