@@ -18,13 +18,17 @@
 <div class = "row">
 <div class = "bg-col-3 bg-primary w-25">
 <span>mode</span>
-<select name = "mode">
+<form action="/classExtration" method="post">
+<select name = "className">
 <option value=" hidden">please select mode</option>
-<option value="filter" >filter</option>
-<option value="export">export</option>
-<option value="edit">edit</option>
-</select>
+<option value="ALL">ALL</option>
+<option value="Manager" >Manager</option>
+<option value="Chief">Chief</option>
 
+</select>
+<input type ="text" name = "age">
+<input type = "submit">
+</form>
 </div>
 
 <div class = "bg-col-3 bg-primary  w-25">
