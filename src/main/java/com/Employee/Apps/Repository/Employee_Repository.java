@@ -10,18 +10,11 @@ import com.Employee.Apps.Entity.Employee_Entity;
 
 public interface Employee_Repository extends JpaRepository<Employee_Entity, Long>{
 
-    @Query(
-    		value = "SELECT * FROM Employee_table where employee_class like :class_name ",
-    		nativeQuery = true
-    	    )
+    @Query(value = "SELECT o FROM Employee_Entity o WHERE employee_class LIKE :class_name ")
     List<Employee_Entity> ShowAll(@Param("class_name") String class_name);
 
-    @Query(
-    		value = "SELECT * FROM Employee_table where employee_age >30",
-    		nativeQuery = true
-    	    )
-    List<Employee_Entity> Showclass();
 
+    List<String> GetDistinct();
 
 	}
 

@@ -25,8 +25,20 @@ public class EmployeeController {
 	@GetMapping("/")
 	public String index(Model model) {
 		List <Employee_Entity> employeies = EService.showAllEmployee();
+
+//		List<String> classList = EService.getColumn("employee_class");
+//		List<String> departmentList = EService.getColumn("employee_department");
+
+		List<String> classList = EService.getColumn("t");
+		List<String> departmentList = EService.getColumn("t");
+
+
+	    model.addAttribute("classList",classList);
+	    model.addAttribute("departmentList",departmentList);
 	    model.addAttribute("employeies",employeies);
-		return "index.html";
+
+
+	    return "index.html";
 	}
 
 

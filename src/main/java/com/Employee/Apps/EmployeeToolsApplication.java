@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EmployeeToolsApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(EmployeeToolsApplication.class, args);
 	}
 

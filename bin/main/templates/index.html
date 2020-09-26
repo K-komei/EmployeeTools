@@ -9,44 +9,42 @@
 <body  class = "h-100 nomalBack">
 
 <div class = "container">
+<!-- ヘッダー部分 -->>
 <div class = "row">
 <div class = "bg-col-12 bg-primary w-100">
 <h1>従業員マスタ</h1>
 </div>
 </div>
 
-<div class = "row">
-<div class = "bg-col-3 bg-primary w-25">
-<span>mode</span>
+<!-- 絞り込みボタン部分 -->
 <form action="/classExtration" method="post">
-<select name = "className">
-<option value=" hidden">please select mode</option>
-<option value="ALL">ALL</option>
-<option value="Manager" >Manager</option>
-<option value="Chief">Chief</option>
+<div class = "row">
+<div class = "bg-col-4 bg-primary w-25">
 
+<span>mode</span>
+<select id="class" name="class">
+        <option th:each="class : ${classList}" th:value="${class}" th:selected="0" >[[${class}]]</option>
 </select>
-<input type ="text" name = "age">
+</div>
+
+<div class = "bg-col-4 bg-primary w-25">
+<select id="department" name="department">
+        <option th:each="department : ${departmentList}" th:value="${department}" th:selected="0" >[[${department}]]</option>
+</select>
+
+
+</div>
+
+<div class = "bg-col-4 bg-primary w-25">
 <input type = "submit">
+</div>
+
+
+</div>
 </form>
-</div>
 
-<div class = "bg-col-3 bg-primary  w-25">
-<!-- <select th:field = "employee : ${employeies}">
-<option th:text="${employee.employee_class}"></option>
-</select>
--->
 
-</div>
 
-<div class = "bg-col-3 bg-primary  w-25">
-</div>
-
-<div class = "bg-col-3 bg-primary  w-25">
-<input type = "submit" value = "act">
-</div>
-
-</div>
 
 <div class = "row">
 <div class = "bg-col-12 bg-secondary w-100">

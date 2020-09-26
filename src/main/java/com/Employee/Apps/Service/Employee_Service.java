@@ -38,6 +38,14 @@ public List<Employee_Entity> ExtraClassName(String className){
 	return resultUserList;
 }
 
+public List<String> getColumn(String columnName){
 
+
+	List<String> Result = employeeRepo.GetDistinct();
+
+	Result.add(0,"ALL");
+
+	return Result;
+}
 
 	}
