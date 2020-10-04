@@ -9,11 +9,15 @@ public class ExtraFrom implements Serializable{
 
 	@Getter
 	@Setter
-	private String className;
+	private String classValue;
 
 	@Getter
 	@Setter
-	private String age;
+	private String departmentValue;
+
+	@Getter
+	@Setter
+	private String sexValue;
 
 
 }

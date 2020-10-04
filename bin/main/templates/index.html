@@ -19,28 +19,31 @@
 <!-- 絞り込みボタン部分 -->
 <form action="/classExtration" method="post">
 <div class = "row">
-<div class = "bg-col-4 bg-primary w-25">
+<div class = "bg-col-4 bg-primary w-20">
 
 <span>mode</span>
-<select id="class" name="class">
+<select id="class" name="classValue">
         <option th:each="class : ${classList}" th:value="${class}" th:selected="0" >[[${class}]]</option>
 </select>
 </div>
 
-<div class = "bg-col-4 bg-primary w-25">
-<select id="department" name="department">
+<div class = "bg-col-4 bg-primary w-20">
+<select id="department" name="departmentValue">
         <option th:each="department : ${departmentList}" th:value="${department}" th:selected="0" >[[${department}]]</option>
 </select>
-
-
 </div>
 
-<div class = "bg-col-4 bg-primary w-25">
+<div class = "bg-col-4 bg-primary w-20">
+<select id="sex" name="sexValue">
+        <option th:each="sex : ${sexList}" th:value="${sex}" th:selected="0" >[[${sex}]]</option>
+</select>
+</div>
+
+<div class = "bg-col-4 bg-primary w-20">
 <input type = "submit">
 </div>
-
-
 </div>
+
 </form>
 
 

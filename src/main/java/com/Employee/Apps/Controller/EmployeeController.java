@@ -26,13 +26,12 @@ public class EmployeeController {
 	public String index(Model model) {
 		List <Employee_Entity> employeies = EService.showAllEmployee();
 
-//		List<String> classList = EService.getColumn("employee_class");
-//		List<String> departmentList = EService.getColumn("employee_department");
-
-		List<String> classList = EService.getColumn("t");
-		List<String> departmentList = EService.getColumn("t");
+		List<String> classList = EService.getColumn("employee_class");
+		List<String> departmentList = EService.getColumn("employee_department");
+		List<String> sexList = EService.getColumn("employee_sex");
 
 
+	    model.addAttribute("sexList",sexList);
 	    model.addAttribute("classList",classList);
 	    model.addAttribute("departmentList",departmentList);
 	    model.addAttribute("employeies",employeies);
@@ -46,23 +45,25 @@ public class EmployeeController {
 	public String createuser(Model model ) {
 		Employee_Entity employee = new Employee_Entity();
 	    model.addAttribute("employee",employee);
-	    EService.EmployeeGenerator();
 		return "createuser.html";
 	}
 
 	@PostMapping("/classExtration")
 	public String classExtration(@ModelAttribute("select") ExtraFrom select ,Model model,String className) {
 		List <Employee_Entity> employeies;
-		String FlagStr = select.getClassName().toString();
-		String All = "ALL"
-	;
+		//selectから値を取り出し、query用のパラメーターを設定する
+		employeies = EService.ExtraClassName(select.getClassValue(),select.getDepartmentValue(),select.getSexValue());
 
-		if(FlagStr.equalsIgnoreCase(All)) {
-			employeies = EService.showAllEmployee();
-		}else {
-			employeies = EService.ExtraClassName(className);
-		}
 		model.addAttribute("employeies",employeies);
+
+		List<String> classList = EService.getColumn("employee_class");
+		List<String> departmentList = EService.getColumn("employee_department");
+		List<String> sexList = EService.getColumn("employee_sex");
+
+	    model.addAttribute("sexList",sexList);
+	    model.addAttribute("classList",classList);
+	    model.addAttribute("departmentList",departmentList);
+
 	    return "index.html";
 	    }
 

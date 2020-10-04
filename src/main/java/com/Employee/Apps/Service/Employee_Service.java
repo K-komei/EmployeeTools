@@ -1,7 +1,5 @@
 package com.Employee.Apps.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,32 +14,51 @@ public class Employee_Service {
 private Employee_Repository employeeRepo;
 
 public List<Employee_Entity> showAllEmployee () {
-
 	return employeeRepo.findAll();
-
 }
 
-public int EmployeeGenerator() {
-
-	Date createDay = new Date();
-    SimpleDateFormat yeerOnlyFormat = new SimpleDateFormat("yyyy");
-    String createYear = yeerOnlyFormat.format(createDay);
-    System.out.println(createYear);
+public List<Employee_Entity> ExtraClassName(String classValue,String departmentValue,String sexValue){
 
 
-	return 0;
+	sexValue = "%" + sexValue.replaceAll("[\r\n]", "") + "%";
+
+
+	String checkFlag="ALL";
+	if(classValue.equals(checkFlag)) {
+		classValue="%";
+	}
+
+	if(departmentValue.equals(checkFlag)) {
+		departmentValue="%";
+	}
+
+	if(sexValue.equals(checkFlag)) {
+		sexValue="%";
+	}
+
+	return employeeRepo.getFilterEmployeeList(classValue,departmentValue,sexValue);
 }
 
-public List<Employee_Entity> ExtraClassName(String className){
-
-	List<Employee_Entity> resultUserList = employeeRepo.ShowAll(className);
-	return resultUserList;
-}
-
-public List<String> getColumn(String columnName){
+public List<String> getColumn(String className) {
 
 
-	List<String> Result = employeeRepo.GetDistinct();
+	List<String> Result = null;
+
+	//クラス取得
+	if(className.equals("employee_class")) {
+		Result = employeeRepo.GetClassValue();
+	}
+
+	//性別取得
+	if(className.equals("employee_sex")) {
+		Result = employeeRepo.GetSexValue();
+	}
+
+	//部署取得
+	if(className.equals("employee_department")) {
+		Result = employeeRepo.GetDepartmentValue();
+	}
+
 
 	Result.add(0,"ALL");
 
