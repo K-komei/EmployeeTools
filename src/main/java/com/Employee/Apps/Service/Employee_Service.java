@@ -19,10 +19,6 @@ public List<Employee_Entity> showAllEmployee () {
 
 public List<Employee_Entity> ExtraClassName(String classValue,String departmentValue,String sexValue){
 
-
-	sexValue = "%" + sexValue.replaceAll("[\r\n]", "") + "%";
-
-
 	String checkFlag="ALL";
 	if(classValue.equals(checkFlag)) {
 		classValue="%";
@@ -35,6 +31,9 @@ public List<Employee_Entity> ExtraClassName(String classValue,String departmentV
 	if(sexValue.equals(checkFlag)) {
 		sexValue="%";
 	}
+
+	sexValue = "%" + sexValue.replaceAll("[\r\n]", "") + "%";
+
 
 	return employeeRepo.getFilterEmployeeList(classValue,departmentValue,sexValue);
 }
@@ -65,4 +64,7 @@ public List<String> getColumn(String className) {
 	return Result;
 }
 
-	}
+
+
+
+}
